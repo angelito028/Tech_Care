@@ -19,6 +19,7 @@ class _MiAplicacionState extends State<MiAplicacion> {
   int _indiceActual = 0;
 
   // ARREGLO DE PANTALLAS
+  // HAY QUE HACER EL INICIO DE SESIÓÓÓÓÓÓÓÓN =)
   final List<Widget> _pantallas = [
     HardwareScreen(),
     AssemblyScreen(),
