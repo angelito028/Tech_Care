@@ -33,8 +33,8 @@ class _MiAplicacionState extends State<MiAplicacion> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue, // 🔵 Color de la AppBar
-          foregroundColor: Colors.white, // ⚪ Color del texto y los íconos
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
         ),
       ),
       home: Scaffold(
