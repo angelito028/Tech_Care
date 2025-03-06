@@ -19,44 +19,49 @@ class BotonHardware extends StatefulWidget {
 class _BotonHardwareState extends State<BotonHardware> {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        setState(() {
+    return SizedBox(
+      width: double.infinity,
+      height: 140,
+      child: ElevatedButton(
+        onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => widget.rutaBoton!),
           );
-        });
-      },
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        padding: EdgeInsets.all(0),
-      ),
-      child: Ink(
-        decoration: BoxDecoration(
-          shape: BoxShape.rectangle,
-          image: DecorationImage(
-            image: AssetImage("assets/${widget.rutaImagen}"),
-            fit: BoxFit.cover,
+        },
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.zero, // Elimina el padding por defecto
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
           ),
-          borderRadius: BorderRadius.circular(10.0),
         ),
-        child: Container(
-          width: double.infinity,
-          height: 140.0,
-          alignment: Alignment.center,
-          child: Center(
-            child: Text(
-              widget.tituloBoton!,
-              style: const TextStyle(
-                color: Color.fromARGB(255, 245, 231, 231),
-                fontSize: 22.0,
-                fontWeight: FontWeight.bold,
+        child: Stack(
+          fit: StackFit.expand, // Asegura que todo el contenido llene el botón
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.asset(
+                "assets/${widget.rutaImagen}",
+                fit: BoxFit.cover, // La imagen ocupa todo el espacio
               ),
             ),
-          ),
+            Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Text(
+                widget.tituloBoton!,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
         ),
       ),
     );
